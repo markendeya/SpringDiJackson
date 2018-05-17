@@ -39,4 +39,14 @@
     <servlet-name>Login</servlet-name>
     <url-pattern>/Login</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CalcAuto</display-name>
+    <servlet-name>CalcAuto</servlet-name>
+    <servlet-class>firstServlet.CalcAuto</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcAuto</servlet-name>
+    <url-pattern>/CalcAuto</url-pattern>
+  </servlet-mapping>
 </web-app>

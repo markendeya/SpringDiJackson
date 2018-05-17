@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class InsuranceDAO1 {
 	public Userbeam isUser(String uname, String pwd) 
@@ -35,5 +36,30 @@ public class InsuranceDAO1 {
 			return details;
 		}
 		
+}
+	
+	public ArrayList<String> autoModelList()
+	{
+		ArrayList<String> models=new ArrayList<String>();
+		try{ 
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con=DriverManager.getConnection(  
+			"jdbc:mysql://localhost:3306/insurance_rating","root","root");  
+			//here sonoo is database name, root is username and password  
+			
+			Statement stmt=con.createStatement();  
+			ResultSet rs=stmt.executeQuery("select Vehicle_Model_Name from auto_rates");  
+			
+			while(rs.next())  
+			{
+		models.add(rs.getString(1));
+			}
+			rs.close();
+			con.close(); 
+		}
+			catch(Exception e){ System.out.println(e);} 
+		finally {
+			return models;
+		}
 }
 }

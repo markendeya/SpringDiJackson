@@ -13,7 +13,7 @@ String n=(String)session.getAttribute("uname");
 out.print("<h2>welcome "+n+"</h2>");%></div>
 <div id="middle" style="height:200px; border:solid;">
 <center><h1>Welcome to A2Z Insurance</h1>
-<a href="AutoPremium.jsp"><h3>Compute to Auto insurance premium</h3></a></center>
+<a href="CalcAuto"><h3>Compute to Auto insurance premium</h3></a></center>
 <div id="bottom"></div>
 </body>
 </html>
