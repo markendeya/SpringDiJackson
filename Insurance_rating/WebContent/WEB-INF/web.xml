@@ -49,4 +49,24 @@
     <servlet-name>CalcAuto</servlet-name>
     <url-pattern>/CalcAuto</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PremiumCalc</display-name>
+    <servlet-name>PremiumCalc</servlet-name>
+    <servlet-class>firstServlet.PremiumCalc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PremiumCalc</servlet-name>
+    <url-pattern>/PremiumCalc</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PremiumCalculator</display-name>
+    <servlet-name>PremiumCalculator</servlet-name>
+    <servlet-class>firstServlet.PremiumCalculator</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PremiumCalculator</servlet-name>
+    <url-pattern>/PremiumCalculator</url-pattern>
+  </servlet-mapping>
 </web-app>

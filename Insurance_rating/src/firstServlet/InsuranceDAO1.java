@@ -62,4 +62,29 @@ public class InsuranceDAO1 {
 			return models;
 		}
 }
+	public int basePremium(String models)
+	{
+		int base=0;
+		try{ 
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con=DriverManager.getConnection(  
+			"jdbc:mysql://localhost:3306/insurance_rating","root","root");  
+			//here sonoo is database name, root is username and password  
+			
+			Statement stmt=con.createStatement();  
+			ResultSet rs=stmt.executeQuery("select Auto_base_Premium  from auto_rates where Vehicle_Model_Name='"+models+"'");  
+			
+			while(rs.next())  
+			{
+		base=(rs.getInt(1));
+			}
+			rs.close();
+			con.close(); 
+		}
+			catch(Exception e){ System.out.println(e);} 
+		finally {
+			return base;
+		}
+		
+	}
 }
