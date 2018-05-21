@@ -69,4 +69,14 @@
     <servlet-name>PremiumCalculator</servlet-name>
     <url-pattern>/PremiumCalculator</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>finalCalcutaion</display-name>
+    <servlet-name>finalCalcutaion</servlet-name>
+    <servlet-class>firstServlet.finalCalcutaion</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>finalCalcutaion</servlet-name>
+    <url-pattern>/finalCalcutaion</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -87,4 +87,35 @@ public class InsuranceDAO1 {
 		}
 		
 	}
+	public double premiumCalculator(String vehicle, String earlierInsurance,String driverClass,String advSecurity,String antiTheft,String violation,String policyTerm)
+	{  double ratingFactor=0;
+		try{ 
+		Class.forName("com.mysql.jdbc.Driver");  
+		Connection con=DriverManager.getConnection(  
+		"jdbc:mysql://localhost:3306/insurance_rating","root","root");  
+		//here sonoo is database name, root is username and password  
+		
+		Statement stmt=con.createStatement();  
+		ResultSet rs=stmt.executeQuery("select Impact_Type,impact_pct from auto_rating_factors where (Rating_Factor_Name='Vehicle Type'and Option_desc='"+vehicle+"')or(Rating_Factor_Name='Proof for Earlier Insurance' and  Option_desc='"+earlierInsurance+"')or(Rating_Factor_Name='Driver Class' and  Option_desc='"+driverClass+"')or(Rating_Factor_Name='Advanced Security Features' and  Option_desc='"+advSecurity+"')or(Rating_Factor_Name='Anti Theft Alarm' and  Option_desc='"+antiTheft+"')or(Rating_Factor_Name='Violation History' and  Option_desc='"+violation+"')or(Rating_Factor_Name='Policy Term' and  Option_desc='"+policyTerm+"')");  
+	float f=1000*rs.getInt(2);
+		while(rs.next()) {
+		if(rs.getInt(1)==0)
+		{
+			ratingFactor-=f;
+			
+		}
+		else
+		{
+			ratingFactor+=f;
+		}
+	}
+		rs.close();
+		con.close(); 
+	}
+		catch(Exception e){ System.out.println(e);} 
+	finally {
+	return  ratingFactor;
+	}
+		
+	}
 }
